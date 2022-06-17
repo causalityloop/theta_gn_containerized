@@ -1,0 +1,36 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: glusterfs-cluster
+  namespace: theta
+spec:
+  ports:
+    - port: 1
+
+---
+apiVersion: v1
+kind: Endpoints
+metadata:
+  name: glusterfs-cluster
+  namespace: theta
+subsets:
+  # adjust the below `addresses` blocks to reflect the number of Gluster hosts you have and
+  # change the `ip` values accordingly
+  - addresses:
+      - ip: 192.168.0.38
+    ports:
+      - port: 1
+  - addresses:
+      - ip: 192.168.0.39
+    ports:
+      - port: 1
+  - addresses:
+      - ip: 192.168.0.42
+    ports:
+      - port: 1
+  - addresses:
+      - ip: 192.168.0.43
+    ports:
+      - port: 1
+

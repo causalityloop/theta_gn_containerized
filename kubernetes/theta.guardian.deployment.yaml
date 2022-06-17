@@ -1,0 +1,43 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/name: theta-guardian-node
+  name: theta-guardian-node
+  namespace: theta
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: theta-guardian-node
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app.kubernetes.io/name: theta-guardian-node
+    spec:
+      containers:
+        - name: theta-guardian-node
+          # IMPORTANT: change the below to the image you built
+          image: '<your_dockerhub_user>/theta/theta_guardian_node:1.0'
+          imagePullPolicy: Always
+          resources: {}
+          volumeMounts:
+            - mountPath: /home/theta/theta_mainnet/guardian/node
+              name: theta-guardian-node-datadir-claim
+            - mountPath: /secrets
+              name: signing-key
+              readOnly: true
+      restartPolicy: Always
+      volumes:
+        - name: theta-guardian-node-datadir-claim
+          persistentVolumeClaim:
+            claimName: theta-guardian-node-data-claim
+        - name: signing-key
+          secret:
+            secretName: secret-signing-key
+status: {}

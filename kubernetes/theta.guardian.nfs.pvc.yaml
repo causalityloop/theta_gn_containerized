@@ -1,0 +1,17 @@
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: theta-guardian-node-data-claim
+  namespace: theta
+spec:
+  storageClassName: theta-data-vol
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 100Gi
+  selector:
+    matchLabels:
+      zone: thetagn
+status: {}

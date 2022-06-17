@@ -1,0 +1,21 @@
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: nfs-thetagn-vol
+  labels:
+    zone: thetagn
+  namespace: theta
+spec:
+  storageClassName: theta-data-vol
+  capacity:
+    storage: 100Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  nfs:
+    # Change the `server` value to reflect the correct IP of your NFS server
+    server: 192.168.0.3
+    # change the path here to reflect the correct nfs mount (in your /etc/exports file)
+    path: "/personal/nfs_theta"
+  persistentVolumeReclaimPolicy: Retain

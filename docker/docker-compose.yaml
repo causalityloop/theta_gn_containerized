@@ -1,0 +1,23 @@
+---
+version: "3"
+services:
+  theta_guardian_node:
+    # since we have the 'build' label, we are not actually pulling the image from dockerhub.
+    # docker-compose is using 'image' label as what to name the image when built
+    image: theta_guardian_node:1.0
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: theta_guardian_node
+    volumes:
+      - theta_mainnet_data:/home/theta/theta_mainnet/guardian/node
+    secrets:
+      - gn-signing-key-password
+    restart: "unless-stopped"
+
+secrets:
+  gn-signing-key-password:
+    file: "${HOME}/.gn.signing.key.password"
+
+volumes:
+  theta_mainnet_data:
