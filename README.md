@@ -28,6 +28,9 @@ There are three (3) installation options to choose from:
 
 More to the above, since I am not providing an already built image - we will just build it ourselves. Fortunately, building this is super easy and the source code/instructions of what is being built is for all to see and review.
 
+### Prerequisites
+Refer to [`prerequisites.md`](prerequisites.md) to install any dependencies for the type of installation you are interested in.
+
 So, let's start...
 <br/><br/>
 ## Option 1 - Docker command line
@@ -38,7 +41,9 @@ When you've created a password, you can just run the `build_and_start_guardian.s
 
 > ./build_and_start_guardian.sh
 
-Lastly, refer to the [`staking.md`](staking.md) document on how to get your **Node Holder (Summary)** so you can begin staking
+Refer to the [`staking.md`](staking.md) document on how to get your **Node Holder (Summary)** so you can begin staking.
+
+Lastly, to stop and/or uninstall please refer to the [uninstall.md](uninstall.md) document.
 <br/><br/>
 ## Option 2 - Docker-compose
 <br/>
@@ -52,7 +57,9 @@ As with the docker shell script above, we can actually build and run this in one
 
 The command will build, if the image does not already exist, and run the guardian node
 
-Lastly, refer to the [`staking.md`](staking.md) document on how to get your **Node Holder (Summary)** so you can begin staking
+Refer to the [`staking.md`](staking.md) document on how to get your **Node Holder (Summary)** so you can begin staking.
+
+Lastly, to stop and/or uninstall please refer to the [uninstall.md](uninstall.md) document.
 <br/><br/>
 ## Option 3 - Kubernetes Deployment
 <br/>
@@ -105,7 +112,7 @@ Open `theta.guardian.nfs.pv.yaml` in an editor and, as the comments suggest, cha
 
 ### Executing the Deployment
 
-Open the `create.thetagn.deployment.sh` in an editor and comment out the appropriate Gluster/NFS sections as it pertains to your desired deployment
+Open `create.thetagn.deployment.sh` in an editor and comment out the appropriate Gluster/NFS sections as it pertains to your desired deployment
 
 Next up, let's deploy...
 
@@ -117,4 +124,6 @@ Once the theta pod is up, you can retrieve the running [logs](./images/k8s_theta
 
 > kubectl logs --namespace theta pod/$(kubectl get pod --namespace theta -o jsonpath="{.items[0].metadata.name}")
 
-Lastly, refer to the [`staking.md`](staking.md) document on how to get your **Node Holder (Summary)** so you can begin staking
+Refer to the [`staking.md`](staking.md) document on how to get your **Node Holder (Summary)** so you can begin staking.
+
+Lastly, to stop and/or uninstall please refer to the [uninstall.md](uninstall.md) document.
