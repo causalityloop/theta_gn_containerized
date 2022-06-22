@@ -35,8 +35,11 @@ So, let's start...
 <br/><br/>
 ## Option 1 - Docker command line
 <br/>
-Take a look at the comments in `build_and_start_guardian.sh`, particularly around creating a password. The script is heavily commented so feel free to take a look at what it does.
+Create a password that will be used to decrypt your private key for your Guardian node.
+<br/><br/>
 
+**NOTE:** take a look at the [password.md](password.md) file for an elaboration of what this password is and how its used. This password has nothing to do with any existing password you have, no 12 word seed phrase, none of that phishing nonsense. You are primarily here because you have some tfuel you want to stake and you want to stake it to your OWN guardian node.
+<br/><br/>
 When you've created a password, you can just run the `build_and_start_guardian.sh` script and it will build and run the Guardian Node container.
 
 > ./build_and_start_guardian.sh
@@ -48,9 +51,10 @@ Lastly, to stop and/or uninstall please refer to the [uninstall.md](uninstall.md
 ## Option 2 - Docker-compose
 <br/>
 Create a password that will be used to decrypt your private key for your Guardian node.
+<br/><br/>
 
-*** NOTE: take a look at the `password.md` file for an elaboration of what this password is and how its used. This password has nothing to do with any existing password you have, no 12 word seed phrase, none of that phishing nonsense. You are primarily here because you have some tfuel you want to stake and you want to stake it to your OWN guardian node.
-
+**NOTE:** take a look at the [password.md](password.md) file for an elaboration of what this password is and how its used. This password has nothing to do with any existing password you have, no 12 word seed phrase, none of that phishing nonsense. You are primarily here because you have some tfuel you want to stake and you want to stake it to your OWN guardian node.
+<br/><br/>
 As with the docker shell script above, we can actually build and run this in one go. To build and run the container, simply run:
 
 > docker-compose up -d
@@ -90,7 +94,7 @@ Now we need to change the `image` reference in the `theta.guardian.deployment.ya
 
 ### Create a password
 
-Next, we need to create a password. You can open the `theta.guardian.secret.yaml` and add it. Also feel free to refer to the `password.md` file for a more step by step approach, if needed.
+Next, we need to create a password. You can open the `theta.guardian.secret.yaml` and add it. Also feel free to refer to the [password.md](password.md) file for a more step by step approach, if needed.
 <br/><br/>
 
 ### Storage Type - GlusterFS/NFS

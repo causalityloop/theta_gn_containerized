@@ -1,5 +1,5 @@
 ---
-version: "3"
+version: "3.3"
 services:
   theta_guardian_node:
     # since we have the 'build' label, we are not actually pulling the image from dockerhub.
