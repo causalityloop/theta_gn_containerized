@@ -12,6 +12,13 @@ Query using the `status` command:
 Query using the `guardian` command:
 > docker exec theta_guardian_node ./bin/thetacli query guardian
 
+To show a running log and monitor the output of the Guardian node in realtime:
+
+>docker logs -f theta_guardian_node
+
+To show all the Guardian node output and print it in console:
+>docker logs theta_guardian_node
+
 ## Kubernetes
 
 Query using the `status` command:

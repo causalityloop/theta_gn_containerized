@@ -38,13 +38,15 @@ So, let's start...
 Create a password that will be used to decrypt your private key for your Guardian node.
 <br/><br/>
 
-**NOTE:** take a look at the [password.md](password.md) file for an elaboration of what this password is and how its used. This password has nothing to do with any existing password you have, no 12 word seed phrase, none of that phishing nonsense. You are primarily here because you have some tfuel you want to stake and you want to stake it to your OWN guardian node.
+**NOTE:** take a look at the [password.md](password.md) file for an elaboration of what this password is and how its used. This password has nothing to do with any existing password you have, no 12 word seed phrase, none of that phishing nonsense. You are primarily here because you have some theta you want to stake and you want to stake it to your OWN guardian node.
 <br/><br/>
 When you've created a password, you can just run the `build_and_start_guardian.sh` script and it will build and run the Guardian Node container.
 
 > ./build_and_start_guardian.sh
 
 Refer to the [`staking.md`](staking.md) document on how to get your **Node Holder (Summary)** so you can begin staking.
+
+To query the status and report the logs please refer to the [additional_cmds.md](additional_cmds.md).
 
 Lastly, to stop and/or uninstall please refer to the [uninstall.md](uninstall.md) document.
 <br/><br/>
@@ -53,7 +55,7 @@ Lastly, to stop and/or uninstall please refer to the [uninstall.md](uninstall.md
 Create a password that will be used to decrypt your private key for your Guardian node.
 <br/><br/>
 
-**NOTE:** take a look at the [password.md](password.md) file for an elaboration of what this password is and how its used. This password has nothing to do with any existing password you have, no 12 word seed phrase, none of that phishing nonsense. You are primarily here because you have some tfuel you want to stake and you want to stake it to your OWN guardian node.
+**NOTE:** take a look at the [password.md](password.md) file for an elaboration of what this password is and how its used. This password has nothing to do with any existing password you have, no 12 word seed phrase, none of that phishing nonsense. You are primarily here because you have some theta you want to stake and you want to stake it to your OWN guardian node.
 <br/><br/>
 As with the docker shell script above, we can actually build and run this in one go. To build and run the container, simply run:
 
@@ -62,6 +64,8 @@ As with the docker shell script above, we can actually build and run this in one
 The command will build, if the image does not already exist, and run the guardian node
 
 Refer to the [`staking.md`](staking.md) document on how to get your **Node Holder (Summary)** so you can begin staking.
+
+To query the status and report the logs please refer to the [additional_cmds.md](additional_cmds.md).
 
 Lastly, to stop and/or uninstall please refer to the [uninstall.md](uninstall.md) document.
 <br/><br/>
@@ -129,5 +133,7 @@ Once the theta pod is up, you can retrieve the running [logs](./images/k8s_theta
 > kubectl logs --namespace theta pod/$(kubectl get pod --namespace theta -o jsonpath="{.items[0].metadata.name}")
 
 Refer to the [`staking.md`](staking.md) document on how to get your **Node Holder (Summary)** so you can begin staking.
+
+To query the status and report the logs please refer to the [additional_cmds.md](additional_cmds.md).
 
 Lastly, to stop and/or uninstall please refer to the [uninstall.md](uninstall.md) document.
