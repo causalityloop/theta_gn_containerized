@@ -20,20 +20,25 @@ Running a Theta Guardian Node, from a container, provides several advantages:
 
 There are three (3) installation options to choose from:
 
-1.  Docker command line - quick and easy to run
-2.  Docker-compose - a cleaner approach as you can manage the configuration via a yaml file
-3.  Kubernetes Deployment - if you are already running a Kubernetes cluster and have a need/want to have the Guardian Node always running - 100% ...this is the path for you
+1. Docker command line - quick and easy to run
+2. Docker-compose - a cleaner approach as you can manage the configuration via a yaml file
+3. Kubernetes Deployment - if you are already running a Kubernetes cluster and have a need/want to have the Guardian Node always running - 100% ...this is the path for you
 
 <a name="images"></a>First to note, I do not provide any docker images. This is crypto and there is an element of trust when you are downloading software from an unknown. I wouldn't do it - and neither should you.
 
 More to the above, since I am not providing an already built image - we will just build it ourselves. Fortunately, building this is super easy and the source code/instructions of what is being built is for all to see and review.
 
 ### Prerequisites
-Refer to [`prerequisites.md`](prerequisites.md) to install any dependencies for the type of installation you are interested in.
+
+* Refer to [`prerequisites.md`](prerequisites.md) to install any dependencies for the type of installation you are interested in
+* If you are interested in **migrating** an existing Theta Guardian Node (ie. Linux GUI version), start [here](migrate_existing_guardian_node.md)
+    * The largest advantage here is avoiding the need to unstake and restake to a new node (address). If time is of no consequence, you can just unstake and restake to the new node address
 
 So, let's start...
 <br/><br/>
+
 ## Option 1 - Docker command line
+
 <br/>
 Create a password that will be used to decrypt your private key for your Guardian node.
 <br/><br/>
@@ -42,7 +47,9 @@ Create a password that will be used to decrypt your private key for your Guardia
 <br/><br/>
 When you've created a password, you can just run the `build_and_start_guardian.sh` script and it will build and run the Guardian Node container.
 
-> ./build_and_start_guardian.sh
+```console
+./build_and_start_guardian.sh
+```
 
 Refer to the [`staking.md`](staking.md) document on how to get your **Node Holder (Summary)** so you can begin staking.
 
@@ -50,7 +57,9 @@ To query the status and report the logs please refer to the [additional_cmds.md]
 
 Lastly, to stop and/or uninstall please refer to the [uninstall.md](uninstall.md) document.
 <br/><br/>
+
 ## Option 2 - Docker-compose
+
 <br/>
 Create a password that will be used to decrypt your private key for your Guardian node.
 <br/><br/>
@@ -59,7 +68,9 @@ Create a password that will be used to decrypt your private key for your Guardia
 <br/><br/>
 As with the docker shell script above, we can actually build and run this in one go. To build and run the container, simply run:
 
-> docker-compose up -d
+```console
+docker-compose up -d
+```
 
 The command will build, if the image does not already exist, and run the guardian node
 
@@ -69,7 +80,9 @@ To query the status and report the logs please refer to the [additional_cmds.md]
 
 Lastly, to stop and/or uninstall please refer to the [uninstall.md](uninstall.md) document.
 <br/><br/>
+
 ## Option 3 - Kubernetes Deployment
+
 <br/>
 There are few steps to configuring the kubernetes deployment for your needs:
 
@@ -77,21 +90,26 @@ There are few steps to configuring the kubernetes deployment for your needs:
 2. Create a password
 3. Choose a storage type for your deployment
 <br/><br/>
+
 ### Theta Guardian Node Image
 
 If you are running your own docker registry or wish to use dockerhub - the world is your oyster. Dockerhub is free if you are looking for options and a quick example is below to build and push **your own** image.
 
 Note: make sure you are logged into dockerhub (paste your api key in `~/.dock_pass`)
-> cat ~/.dock_pass | docker login --username <your_dockerhub_user> --password-stdin
+```console
+cat ~/.dock_pass | docker login --username <your_dockerhub_user> --password-stdin
+```
 
 Build and push the image:
-> cd docker
->
-> docker build -t theta_guardian_node:1.0 .
->
-> docker tag theta_guardian_node:1.0 <your_dockerhub_user>/theta/theta_guardian_node:1.0
->
-> docker push <your_dockerhub_user>/theta/theta_guardian_node:1.0
+```console
+cd docker
+
+docker build -t theta_guardian_node:1.0 .
+
+docker tag theta_guardian_node:1.0 <your_dockerhub_user>/theta/theta_guardian_node:1.0
+
+docker push <your_dockerhub_user>/theta/theta_guardian_node:1.0
+```
 
 Now we need to change the `image` reference in the `theta.guardian.deployment.yaml` to reflect your image. ie. `<your_dockerhub_user>/theta/theta_guardian_node:1.0`
 <br/><br/>
@@ -126,11 +144,15 @@ Next up, let's deploy...
 
 Run the `create.thetagn.deployment.sh` script and off you go. You can monitor the deploy by issuing the following `kubectl` command
 
-> watch kubectl get deployment,svc,pods,pvc,pv,endpoints --namespace theta
+```console
+watch kubectl get deployment,svc,pods,pvc,pv,endpoints --namespace theta
+```
 
 Once the theta pod is up, you can retrieve the running [logs](./images/k8s_thetagn_startup_output.png) with:
 
-> kubectl logs --namespace theta pod/$(kubectl get pod --namespace theta -o jsonpath="{.items[0].metadata.name}")
+```console
+kubectl logs --namespace theta pod/$(kubectl get pod --namespace theta -o jsonpath="{.items[0].metadata.name}")
+```
 
 Refer to the [`staking.md`](staking.md) document on how to get your **Node Holder (Summary)** so you can begin staking.
 

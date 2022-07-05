@@ -6,13 +6,17 @@ I primarily did my testing on an Ubuntu based distribution. If you are using ano
 
 Minimally, we just require docker here.
 
->sudo apt-install -y docker.io
+```console
+sudo apt-install -y docker.io
+```
 
 ## Docker-Compose Installation
 
 Here we will need `docker` and `docker-compose`. So let's get that installed:
 
->sudo apt install -y docker.io docker-compose
+```console
+sudo apt install -y docker.io docker-compose
+```
 
 ## Kubernetes Deployment
 
