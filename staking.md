@@ -10,7 +10,9 @@ Follow along below with the installation method you chose prior:
 
 ## Docker / Docker-Compose
 
-> docker exec theta_guardian_node ./get_stake_address.sh
+```console
+docker exec theta_guardian_node ./get_stake_address.sh
+```
 
 Below is example output from a Guardian Node I was testing:
 
@@ -18,7 +20,9 @@ Below is example output from a Guardian Node I was testing:
 
 ## Kubernetes
 
-> kubectl exec --namespace theta pod/$(kubectl get pod --namespace theta -o jsonpath="{.items[0].metadata.name}") -- ./get_stake_address.sh
+```console
+kubectl exec --namespace theta pod/$(kubectl get pod --namespace theta -o jsonpath="{.items[0].metadata.name}") -- ./get_stake_address.sh
+```
 
 Below is example output from the Guardian Node in the cluster I was testing:
 

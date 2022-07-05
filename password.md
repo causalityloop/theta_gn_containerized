@@ -13,7 +13,9 @@ of your choosing (I'm not sure on the length but i've tested with up to 20 chara
 
 By default, both `docker/docker-compose` installations look for the password file in `${HOME}/.gn.signing.key.password`. You can create the password as follows:
 
->echo -n '\<password>' > ${HOME}/.gn.signing.key.password
+```console
+echo -n '\<password>' > ${HOME}/.gn.signing.key.password
+```
 
 ## Kubernetes Deployment
 

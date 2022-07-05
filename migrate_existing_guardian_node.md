@@ -27,7 +27,9 @@ At this point, if not already done so, shut down your running Theta Guardian Nod
 
 Create a new directory to contain our copy of the existing Guardian Node data:
 
-> mkdir -p "\${HOME}/theta_mainnet_data" && chmod 777 "${HOME}/theta_mainnet_data"
+```console
+mkdir -p "&{HOME}/theta_mainnet_data" && chmod 777 "&{HOME}/theta_mainnet_data"
+```
 
 For **docker**, read the comment in [build_and_start_guardian.sh](build_and_start_guardian.sh) for `bind mount` and change the script to use that example.
 
@@ -35,7 +37,9 @@ For **docker-compose**, read the comment in [docker-compose.yaml](docker-compose
 
 Copy the existing data:
 
-> cp -rvp "${HOME}/.config/Theta Guardian Node/ThetaGN/configs/mainnet/" "\${HOME}/theta_mainnet_data/"
+```console
+cp -rvp "${HOME}/.config/Theta Guardian Node/ThetaGN/configs/mainnet/" "\${HOME}/theta_mainnet_data/"
+```
 
 ### Kubernetes installation
 
@@ -50,7 +54,9 @@ Change the permissions for all the files/directories so the container can read t
 
 ### Docker/Docker-compose installation
 
-> sudo chown -R 9001:9001 "\${HOME}/theta_mainnet_data/"
+```console
+sudo chown -R 9001:9001 "\${HOME}/theta_mainnet_data/"
+```
 
 ### Kubernetes installation
 
