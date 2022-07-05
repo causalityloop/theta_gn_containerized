@@ -49,7 +49,7 @@ else
     GN_META="$(./bin/thetacli query guardian)"
     GN_SUMMARY="$(jq -r '.Summary' <<< ${GN_META})"
 
-    echo "Your Guardian Node holder (Summary) to stake your TFUEL to is:"
+    echo "Your Guardian Node holder (Summary) to stake your THETA to is:"
     echo
     echo "${GN_SUMMARY}"
     echo

@@ -1,3 +1,5 @@
+# Passwords - How are they used here?
+
 Here is link to the Theta Guardian Node installation document regarding the password:
 
 https://docs.thetatoken.org/docs/running-a-guardian-node-through-command-line#2-launch-the-guardian-node

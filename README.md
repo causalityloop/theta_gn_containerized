@@ -20,20 +20,24 @@ Running a Theta Guardian Node, from a container, provides several advantages:
 
 There are three (3) installation options to choose from:
 
-1.  Docker command line - quick and easy to run
-2.  Docker-compose - a cleaner approach as you can manage the configuration via a yaml file
-3.  Kubernetes Deployment - if you are already running a Kubernetes cluster and have a need/want to have the Guardian Node always running - 100% ...this is the path for you
+1. Docker command line - quick and easy to run
+2. Docker-compose - a cleaner approach as you can manage the configuration via a yaml file
+3. Kubernetes Deployment - if you are already running a Kubernetes cluster and have a need/want to have the Guardian Node always running - 100% ...this is the path for you
 
 <a name="images"></a>First to note, I do not provide any docker images. This is crypto and there is an element of trust when you are downloading software from an unknown. I wouldn't do it - and neither should you.
 
 More to the above, since I am not providing an already built image - we will just build it ourselves. Fortunately, building this is super easy and the source code/instructions of what is being built is for all to see and review.
 
 ### Prerequisites
-Refer to [`prerequisites.md`](prerequisites.md) to install any dependencies for the type of installation you are interested in.
+
+* Refer to [`prerequisites.md`](prerequisites.md) to install any dependencies for the type of installation you are interested in
+* If you are interested in **migrating** an existing Theta Guardian Node (ie. Linux GUI version), start [here](migrate_existing_guardian_node.md)
 
 So, let's start...
 <br/><br/>
+
 ## Option 1 - Docker command line
+
 <br/>
 Create a password that will be used to decrypt your private key for your Guardian node.
 <br/><br/>
@@ -50,7 +54,9 @@ To query the status and report the logs please refer to the [additional_cmds.md]
 
 Lastly, to stop and/or uninstall please refer to the [uninstall.md](uninstall.md) document.
 <br/><br/>
+
 ## Option 2 - Docker-compose
+
 <br/>
 Create a password that will be used to decrypt your private key for your Guardian node.
 <br/><br/>
@@ -69,7 +75,9 @@ To query the status and report the logs please refer to the [additional_cmds.md]
 
 Lastly, to stop and/or uninstall please refer to the [uninstall.md](uninstall.md) document.
 <br/><br/>
+
 ## Option 3 - Kubernetes Deployment
+
 <br/>
 There are few steps to configuring the kubernetes deployment for your needs:
 
@@ -77,6 +85,7 @@ There are few steps to configuring the kubernetes deployment for your needs:
 2. Create a password
 3. Choose a storage type for your deployment
 <br/><br/>
+
 ### Theta Guardian Node Image
 
 If you are running your own docker registry or wish to use dockerhub - the world is your oyster. Dockerhub is free if you are looking for options and a quick example is below to build and push **your own** image.

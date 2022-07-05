@@ -10,6 +10,8 @@ services:
       dockerfile: Dockerfile
     container_name: theta_guardian_node
     volumes:
+      # for a bind mount, swap in the below line - keeping quotes
+      # - "${HOME}/theta_mainnet_data:/home/theta/theta_mainnet/guardian/node"
       - theta_mainnet_data:/home/theta/theta_mainnet/guardian/node
     secrets:
       - gn-signing-key-password
@@ -19,5 +21,6 @@ secrets:
   gn-signing-key-password:
     file: "${HOME}/.gn.signing.key.password"
 
+# comment out the below 2 lines if using bind mount
 volumes:
   theta_mainnet_data:
