@@ -32,6 +32,8 @@ More to the above, since I am not providing an already built image - we will jus
 
 * Refer to [`prerequisites.md`](prerequisites.md) to install any dependencies for the type of installation you are interested in
 * If you are interested in **migrating** an existing Theta Guardian Node (ie. Linux GUI version), start [here](migrate_existing_guardian_node.md)
+    * The largest advantage here is avoiding the need to unstake and restake to a new node (address). If time is of no consequence, you can just unstake and restake to the new node address
+
 
 So, let's start...
 <br/><br/>
