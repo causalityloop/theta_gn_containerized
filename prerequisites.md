@@ -7,7 +7,7 @@ I primarily did my testing on an Ubuntu based distribution. If you are using ano
 Minimally, we just require docker here.
 
 ```console
-sudo apt-install -y docker.io
+sudo apt install -y docker.io
 ```
 
 ## Docker-Compose Installation
