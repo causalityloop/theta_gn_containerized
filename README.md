@@ -104,7 +104,7 @@ Build and push the image:
 ```console
 cd docker
 
-docker build -t theta_guardian_node:1.0 .
+docker build --no-cache -t theta_guardian_node:1.0 .
 
 docker tag theta_guardian_node:1.0 <your_dockerhub_user>/theta/theta_guardian_node:1.0
 
