@@ -2,7 +2,7 @@
 
 # build the Theta Guardian Node image
 # this is essentially a no-op if the image already exists
-docker build -t theta_guardian_node:1.0 .
+docker build --no-cache -t theta_guardian_node:1.0 .
 
 # In launching this, we need to provide a password to the container
 #
