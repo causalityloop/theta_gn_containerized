@@ -69,7 +69,7 @@ Create a password that will be used to decrypt your private key for your Guardia
 As with the docker shell script above, we can actually build and run this in one go. To build and run the container, simply run:
 
 ```console
-docker-compose up -d
+docker-compose up -d --force-recreate
 ```
 
 The command will build, if the image does not already exist, and run the guardian node
